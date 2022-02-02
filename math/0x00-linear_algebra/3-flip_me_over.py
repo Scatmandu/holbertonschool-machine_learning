@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
 
-import numpy as np
-
 
 def matrix_transpose(matrix):
-    trans_mat = np.transpose(matrix)
-    x = trans_mat.tolist()
-    return x
+    new_matrix = []
+    rows = len(matrix)
+    columns = len(matrix[0])
+    for j in range(columns):
+        row = []
+        for i in range(rows):
+            row.append(matrix[i][j])
+        new_matrix.append(row)
+    return new_matrix
