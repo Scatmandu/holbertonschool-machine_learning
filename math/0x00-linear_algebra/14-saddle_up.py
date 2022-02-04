@@ -3,8 +3,6 @@
 import numpy as np
 
 
-def mat_mul(mat1, mat2):
+def np_matmul(mat1, mat2):
     """multiplies two matrices using numpy"""
-    product = np.dot(mat1, mat2)
-    x = product.tolist()
-    return x
+    return np.dot(mat1, mat2)
