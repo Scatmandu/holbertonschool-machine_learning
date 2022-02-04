@@ -1,15 +1,18 @@
 #!/usr/bin/env python3
-
-import numpy as np
+"""adds two matrices element-wise"""
 
 
 def add_matrices2D(mat1, mat2):
-
-    if np.shape(mat1) != np.shape(mat2):
+    """adds two matrices element-wise"""
+    if len(mat1) != len(mat2):
+        return None
+    elif len(mat1[0]) != len(mat2[0]):
         return None
     else:
-        vector1 = np.array(mat1)
-        vector2 = np.array(mat2)
-        sum_vector = vector1 + vector2
-        x = sum_vector.tolist()
-        return x
+        result = []
+        for a, b in zip(mat1, mat2):
+            current_list = []
+            for x, y in zip(a, b):
+                current_list.append(x + y)
+            result.append(current_list)
+        return result
