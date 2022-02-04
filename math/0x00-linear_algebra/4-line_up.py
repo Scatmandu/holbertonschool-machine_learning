@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
+"""adds two arrays element-wise"""
 
 
 def add_arrays(arr1, arr2):
+    """adds two arrays element-wise"""
     new_list = []
 
     if len(arr1) != len(arr2):
