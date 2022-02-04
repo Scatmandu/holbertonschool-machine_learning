@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
+"""transposes a matrix"""
 
 
 def matrix_transpose(matrix):
+    """transposes a matrix"""
     new_matrix = []
     rows = len(matrix)
     columns = len(matrix[0])

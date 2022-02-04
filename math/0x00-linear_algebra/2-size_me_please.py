@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
+"""calculates the shape of two matrices"""
 
 
 def matrix_shape(matrix):
+    """calculates the shape of two matrices"""
     new_list = []
     row = len(matrix)
     column = len(matrix[0])
