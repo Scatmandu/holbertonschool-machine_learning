@@ -16,4 +16,4 @@ def matrix_shape(matrix):
         new_list.append(row)
         new_list.append(column)
         new_list.append(length)
-    return new_list
+        return new_list
