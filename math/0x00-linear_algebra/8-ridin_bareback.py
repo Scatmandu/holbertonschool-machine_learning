@@ -1,3 +1,7 @@
+#!/usr/bin/env python3
+"""multiplies two matrices"""
+
+
 def mat_mul(mat1, mat2):
     """multiplies two matrices"""
 
