@@ -1,12 +1,24 @@
 #!/usr/bin/env python3
-
-import numpy as np
+"""concatenates two matrices"""
 
 
 def cat_matrices2D(mat1, mat2, axis=0):
-    new_list = []
-    a = np.array(mat1)
-    b = np.array(mat2)
-    new_list = np.concatenate((a, b), axis)
-    x = new_list.tolist()
-    return x
+    """concatenates two matrices"""
+    if axis == 0:
+        if len(mat1[0]) != len(mat2[0]):
+            return None
+        else:
+            new_list = []
+            for row in mat1:
+                new_list.append(row.copy())
+            for i in range(len(mat2)):
+                new_list.append(mat2[i].copy())
+            return new_list
+    else:
+        if len(mat1) != len(mat2):
+            return None
+        else:
+            new_list = []
+            for i in range(len(mat1)):
+                new_list.append(mat1[i].copy() + mat2[i].copy())
+            return new_list
