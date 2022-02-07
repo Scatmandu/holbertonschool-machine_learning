@@ -4,16 +4,23 @@
 
 def mat_mul(mat1, mat2):
     """multiplies two matrices"""
-
-    if len(mat1) != len(mat2):
-        return None
-    elif len(mat1[0]) != len(mat2[0]):
+    if len(mat1[0]) != len(mat2):
         return None
     else:
-        result = []
-        for a, b in zip(mat1, mat2):
-            current_list = []
-            for x, y in zip(a, b):
-                current_list.append(x * y)
-            result.append(current_list)
-        return result
+        new_list = []
+        i = 0
+        j = 0
+        row = len(mat1)
+        col = len(mat2[0])
+        while len(new_list) < row:
+            new_list.append([])
+            while len(new_list[-1]) < col:
+                new_list[-1].append(0)
+        while i < len(new_list):
+            while j < len(new_list[0]):
+                new_list[i][j] = mat1[i][0] * mat2[0][j] + \
+                 mat1[i][1] * mat2[1][j]
+                j += 1
+            i += 1
+            j = 0
+        return new_list
