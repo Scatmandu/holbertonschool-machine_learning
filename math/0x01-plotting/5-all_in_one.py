@@ -29,7 +29,7 @@ fig, axs = plt.subplots(3, 2, constrained_layout=True)
 axs[0][0].plot(y0, color="red")
 axs[0][0].set_xlim([0, 10])
 # top right
-axs[0][1].scatter(x1, y1, c="magenta")
+axs[0][1].scatter(x1, y1, s=7, c="magenta")
 axs[0][1].set_xlabel("Height (in)")
 axs[0][1].set_ylabel("Weight (lbs)")
 axs[0][1].set_title("Men's Height vs Weight", {'fontsize': 8})
