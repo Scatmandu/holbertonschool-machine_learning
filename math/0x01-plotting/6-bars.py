@@ -7,13 +7,10 @@ fruit = np.random.randint(0, 20, (4, 3))
 
 ticks = [0, 10, 20, 30, 40, 50, 60, 70, 80]
 labels = ["Farrah", "Fred", "Felicia"]
-fruit_names = ["apples", "bananas", "oranges", "peaches"]
 apples = [3, 14, 15]
 bananas = [6, 16, 9]
 oranges = [8, 4, 7]
 peaches = [16, 16, 7]
-fruits = [apples, bananas, oranges, peaches]
-
 width = 0.5
 
 
