@@ -11,16 +11,14 @@ class Exponential:
             else:
                 self.lambtha = float(lambtha)
         else:
-            length = len(data)
             if type(data) is not list:
                 raise TypeError("data must be a list")
-            elif length < 2:
+            elif len(data) < 2:
                 raise ValueError("data must contain multiple values")
             else:
-                total = 0
-                for x in data:
-                    total = x + total
-                self.lambtha = float(1 / (total / length))
+                length = float(len(data))
+                total = float(sum(data))
+                self.lambtha = 1 / (total / length)
 
     def pdf(self, x):
         """calculates pdf of exponential distribution"""
