@@ -54,7 +54,16 @@ class Normal:
         bit2 = ((x ** 5) / 10)
         bit3 = ((x ** 7) / 42)
         bit4 = ((x ** 9) / 216)
-        erf = ((bit0) * ((x - bit1) + (bit2) - (bit3) + (bit4)))
         inside = (x - mean) / (2 ** .5 * std)
-        total = (.5 * (1 + erf * inside))
-        return (total)
+        total = (0.5 * (1 + self.erf(inside)))
+        return total
+
+    def erf(self, x):
+        """error func used in cdf"""
+        pi = 3.1415926536
+        bit0 = (2 / pi ** .5)
+        bit1 = ((x ** 3) / 3)
+        bit2 = ((x ** 5) / 10)
+        bit3 = ((x ** 7) / 42)
+        bit4 = ((x ** 9) / 216)
+        return (bit0 * (x - bit1 + bit2 - bit3 + bit4))
