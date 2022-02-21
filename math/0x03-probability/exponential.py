@@ -24,13 +24,16 @@ class Exponential:
 
     def pdf(self, x):
         """calculates pdf of exponential distribution"""
-        neg = self.lambtha * -1
-        pdf = self.lambtha * (e ** (neg * x))
+        e = 2.7182818285
+        lmb = self.lambtha
+        neg = lmb * -1
+        pdf = lmb * (e ** (neg * x))
         return pdf
 
     def cdf(self, x):
         """calculates cdf of exponential distribution"""
         e = 2.7182818285
-        neg = self.lambtha * -1
+        lmb = self.lambtha
+        neg = lmb * -1
         cdf = 1 - e ** (neg * x)
         return cdf
