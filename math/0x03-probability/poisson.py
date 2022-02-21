@@ -27,7 +27,7 @@ class Poisson:
     def pmf(self, k):
         """returns pmf of Poisson distribution"""
         e = 2.7182818285
-        pmf_numerator = (e ** (-self.lambtha) * (self.lambtha ** k))
+        pmf_numerator = (e ** (-1 * self.lambtha) * (self.lambtha ** k))
         pmf_denominator = 1
         if type(k) is not int:
             k = int(key)
@@ -42,7 +42,7 @@ class Poisson:
         if type(k) is not int:
             k = int(key)
         for i in range(k + 1):
-            cdf_numerator = (e ** (-self.lambtha) * (self.lambtha ** i))
+            cdf_numerator = (e ** (-1 * self.lambtha) * (self.lambtha ** i))
             cdf_denominator = 1
             for x in range(1, i + 1):
                 cdf_denominator *= x
