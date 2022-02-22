@@ -33,12 +33,12 @@ class Poisson:
 
     def cdf(self, k):
         """returns cdf of Poisson distribution"""
-        e = 2.7182818285
-        cdf_store = []
         if k < 0:
             return 0
         if type(k) is not int:
-            k = int(key)
+            k = int(k)
+        e = 2.7182818285
+        cdf_store = []
         lam = self.lambtha
         for i in range(k + 1):
             cdf_numerator = (e ** (-lam) * (lam ** i))
