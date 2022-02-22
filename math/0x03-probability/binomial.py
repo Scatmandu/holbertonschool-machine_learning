@@ -31,10 +31,10 @@ class Binomial:
 
     def pmf(self, k):
         """calculates pmf for binomial distribution"""
+        if k < 0 or k > self.n:
+            return 0
         if type(k) is not int:
             k = int(k)
-        elif k < 0 or k > self.n:
-            return 0
         n = self.n
         p = self.p
         q = 1 - p
