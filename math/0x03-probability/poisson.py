@@ -28,27 +28,25 @@ class Poisson:
             k = int(k)
         e = 2.7182818285
         lam = self.lambtha
-        pmf_numerator = ((e ** (-self.lambtha)) * (self.lambtha ** k))
-        pmf_denominator = self.fact(k)
-        return (lam ** k * e ** -lam / pmf_denominator)
+        denominator = self.fact(k)
+        return (lam ** k * e ** -lam / denominator)
 
     def cdf(self, k):
         """returns cdf of Poisson distribution"""
         e = 2.7182818285
         cdf_store = []
+        if k < 0:
+            return 0
         if type(k) is not int:
             k = int(key)
-        elif k < 0:
-            return 0
-        else:
-            lam = self.lambtha
-            for i in range(k + 1):
-                cdf_numerator = (e ** (-1 * lam) * (lam ** i))
-                cdf_denominator = 1
-                for x in range(1, i + 1):
-                    cdf_denominator *= x
-                cdf_store.append(cdf_numerator / cdf_denominator)
-            return sum(cdf_store)
+        lam = self.lambtha
+        for i in range(k + 1):
+            cdf_numerator = (e ** (-lam) * (lam ** i))
+            cdf_denominator = 1
+            for x in range(1, i + 1):
+                cdf_denominator = self.fact(x)
+            cdf_store.append(cdf_numerator / cdf_denominator)
+        return sum(cdf_store)
 
     def fact(self, n):
         """returns factorial"""
