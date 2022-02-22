@@ -5,7 +5,7 @@
 class Normal:
     """initializes class Normal"""
     def __init__(self, data=None, mean=0., stddev=1.):
-        if not data:
+        if data is None:
             self.mean = float(mean)
             if stddev <= 0:
                 raise ValueError("stddev must be a positive value")

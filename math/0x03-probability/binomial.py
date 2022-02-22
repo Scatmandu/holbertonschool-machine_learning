@@ -5,7 +5,7 @@
 class Binomial:
     """initializing class Binomial"""
     def __init__(self, data=None, n=1, p=0.5):
-        if not data:
+        if data is None:
             if n <= 0:
                 raise ValueError("n must be a positive value")
             elif p <= 0 or p >= 1:
