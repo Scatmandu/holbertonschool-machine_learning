@@ -23,15 +23,13 @@ class Poisson:
     def pmf(self, k):
         """returns pmf of Poisson distribution"""
         e = 2.7182818285
-        pmf_numerator = (e ** (-1 * self.lambtha) * (self.lambtha ** k))
-        pmf_denominator = 1
+        pmf_numerator = ((e ** (-self.lambtha)) * (self.lambtha ** k))
+        pmf_denominator = self.fact(k)
         if type(k) is not int:
             k = int(k)
-        elif k < 0:
+        if k < 0:
             return 0
         else:
-            for x in range(1, k + 1):
-                pmf_denominator *= x
             return pmf_numerator / pmf_denominator
 
     def cdf(self, k):
@@ -51,3 +49,10 @@ class Poisson:
                     cdf_denominator *= x
                 cdf_store.append(cdf_numerator / cdf_denominator)
             return sum(cdf_store)
+
+    def fact(self, n):
+        """returns factorial"""
+        fact = 1
+        for num in range(1, n + 1):
+            fact *= num
+        return fact
