@@ -15,6 +15,7 @@ class Neuron:
         self.nx = nx
         self.__W = np.random.normal(size=(1, self.nx))
         self.__b = 0
+        self.__A = 0
 
     def forward_prop(self, X):
         """calculates forward propagation"""
