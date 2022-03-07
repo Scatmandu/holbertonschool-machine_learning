@@ -46,19 +46,15 @@ class Neuron:
 
     @property
     def W(self):
-        """W setter"""
+        """W getter"""
         return self.__W
 
     @property
     def b(self):
-        """b setter"""
+        """b getter"""
         return self.__b
 
     @property
     def A(self):
-        """A setter"""
+        """A getter"""
         return self.__A
-
-    @A.setter
-    def A(self, A):
-        self.__A = A
