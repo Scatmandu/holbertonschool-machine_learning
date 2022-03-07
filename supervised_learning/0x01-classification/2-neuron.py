@@ -9,7 +9,7 @@ class Neuron:
     """instantiating Neuron"""
     def __init__(self, nx):
         if type(nx) is not int:
-            raise ValueError("nx must be an integer")
+            raise TypeError("nx must be an integer")
         if nx < 1:
             raise ValueError("nx must be a positive integer")
         self.nx = nx
@@ -17,7 +17,7 @@ class Neuron:
         self.__b = 0
 
     def forward_prop(self, X):
-        """"""
+        """calculate forward propagation"""
         activation = np.matmul(self.__W, X) + self.__b
         self.__A = (1 / (1 + np.exp(-activation)))
         return self.__A

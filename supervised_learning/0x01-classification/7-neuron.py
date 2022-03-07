@@ -10,7 +10,7 @@ class Neuron:
     """instantiating Neuron"""
     def __init__(self, nx):
         if type(nx) is not int:
-            raise ValueError("nx must be an integer")
+            raise TypeError("nx must be an integer")
         if nx < 1:
             raise ValueError("nx must be a positive integer")
         self.nx = nx
