@@ -14,10 +14,12 @@ def f1_score(confusion):
         Returns: a numpy.ndarray of shape (classes,) containing
             the F1 score of each class
     """
+    sensitivity = __import__('1-sensitivity').sensitivity
+    precision = __import__('2-precision').precision
     FP = confusion.sum(axis=0) - np.diag(confusion)
     FN = confusion.sum(axis=1) - np.diag(confusion)
     TP = np.diag(confusion)
     TN = confusion.sum() - (FP + FN + TP)
-    precision = TP / (TP + FP)
-    recall = TP / (TP + FN)
-    return (((precision * recall) / (precision + recall)) * 2)
+    # precision = TP / (TP + FP)
+    # recall = TP / (TP + FN)
+    return (((precision * sensitivity) / (precision + sensitivity)) * 2)
