@@ -22,4 +22,5 @@ def f1_score(confusion):
     TN = confusion.sum() - (FP + FN + TP)
     # precision = TP / (TP + FP)
     # recall = TP / (TP + FN)
-    return (((precision * sensitivity) / (precision + sensitivity)) * 2)
+    return (((precision(confusion) * sensitivity(confusion)) /
+             (precision(confusion) + sensitivity(confusion))) * 2)
