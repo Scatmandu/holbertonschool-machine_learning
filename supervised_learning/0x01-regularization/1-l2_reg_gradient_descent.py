@@ -19,16 +19,17 @@ def l2_reg_gradient_descent(Y, weights, cache, alpha, lambtha, L):
     """
     m = Y.shape[1]
     for layer in range(L, 0, -1):
-        A = cache['A{}'.format(layer)]
-        A1 = cache["A{}".format(layer - 1)]
+        a = cache["A{}".format(layer)]
         if layer == L:
-            dz = (A - Y)
+            dz = (cache["A{}".format(layer)] - Y)
         else:
-            dz1 = dz
-            dz = np.matmul(W.T, dz1) * (1 - (A**2))
-        W = weights['W{}'.format(layer)]
-        b = weights['b{}'.format(layer)]
-        dw = (1 / m) * np.matmul(dz, A1.T)
-        db = (1 / m) * np.sum(dz, axis=1, keepdims=True)
-        weights['W{}'.format(layer)] = W - (alpha * dw)
-        weights['b{}'.format(layer)] = b - (alpha * db)
+            dz = da * (1 - np.square(a))
+
+        l2 = ((lambtha/m) * weights["W{}".format(layer)])
+        dw = (np.matmul(dz, cache["A{}".format(layer-1)].T) / m) + l2
+        db = np.sum(dz, axis=1, keepdims=True) / m
+        da = np.matmul(weights["W{}".format(layer)].T, dz)
+        weight = weights["W{}".format(layer)] - (alpha * dw)
+        bias = weights["b{}".format(layer)] - (alpha * db)
+        weights["W{}".format(layer)] = weight
+        weights["b{}".format(layer)] = bias
