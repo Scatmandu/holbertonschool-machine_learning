@@ -3,7 +3,7 @@
 import numpy as np
 
 
-def convlve_grayscale_padding(images, kernel, padding):
+def convolve_grayscale_padding(images, kernel, padding):
     """
         method that performs a valid convlution on grayscale images
 
@@ -35,7 +35,7 @@ def convlve_grayscale_padding(images, kernel, padding):
     ph = padding[0]
     pw = padding[1]
     pad_total = ((0, 0), (ph, ph), (pw, pw))
-    pad_m = np.pad(images, pad_width=padSize, mode='constant')
+    pad_m = np.pad(images, pad_width=pad_total, mode='constant')
     conv = np.zeros((m, h + (2 * ph) - kh + 1, w + (2 * pw) - kw + 1))
     for x in range(conv.shape[1]):
         for y in range(conv.shape[2]):
